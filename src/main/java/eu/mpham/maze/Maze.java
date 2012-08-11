@@ -4,10 +4,32 @@ package eu.mpham.maze;
 public class Maze {
 	
 	public enum Type {
-		EMPTY, CROSS, HORIZONTAL, VERTICAL, UPPER_LEFT_CORNER,
-		UPPER_RIGHT_CORNER, LOWER_LEFT_CORNER, LOWER_RIGHT_CORNER,
-		VERTICAL_HALF_LEFT, VERTICAL_HALF_RIGHT, HORIZONTAL_HALF_TOP,
-		HORIZONTAL_HALF_BOTTTOM, HALF_TOP, HALF_RIGHT, HALF_BOTTOM, HALF_LEFT
+		EMPTY("empty.png"),
+		CROSS("cross.png"),
+		HORIZONTAL("horizontal.png"),
+		VERTICAL("vertical.png"),
+		UPPER_LEFT_CORNER("upper_left_corner.png"),
+		UPPER_RIGHT_CORNER("upper_right_corner.png"),
+		LOWER_LEFT_CORNER("lower_left_corner.png"),
+		LOWER_RIGHT_CORNER("lower_right_corner.png"),
+		VERTICAL_HALF_LEFT("vertical_half_left.png"),
+		VERTICAL_HALF_RIGHT("vertical_half_right.png"),
+		HORIZONTAL_HALF_TOP("horizontal_half_top.png"),
+		HORIZONTAL_HALF_BOTTTOM("horizontal_half_bottom.png"),
+		HALF_TOP("half_top.png"),
+		HALF_RIGHT("half_right.png"),
+		HALF_BOTTOM("half_bottom.png"),
+		HALF_LEFT("half_left.png");
+		
+		private String url;
+		
+		private Type(String url) {
+			this.url = url;
+		}
+		
+		public String toString() {
+			return this.url;
+		}
 	}
 
 	// Dimensions of the maze
@@ -102,7 +124,7 @@ public class Maze {
 			
 		} else if (hWalls[row][column]) {
 			// Determine what kind of horizontal line is this
-			if (hWalls[row][column - 1] && hWalls[row][columns + 1])
+			if (hWalls[row][column - 1] && hWalls[row][column + 1])
 				return Type.HORIZONTAL;
 			else if (hWalls[row][column - 1])
 				return Type.HALF_LEFT;
