@@ -23,14 +23,14 @@ public class App {
 	public void proceed() {
 		new MainFrame(maze);
 		
-//		for (int row = 1; row <= maze.getRows(); row ++) {
-//			for (int column = 1; column <= maze.getColumns(); column++) {
-//				if (column == maze.getColumns())
-//					System.out.println(maze.getType(row, column));
-//				else
-//					System.out.print(maze.getType(row, column) + ", ");
-//			}
-//		}
+		for (int row = 1; row <= maze.getRows(); row ++) {
+			for (int column = 1; column <= maze.getColumns(); column++) {
+				if (column == maze.getColumns())
+					System.out.println(maze.getType(row, column));
+				else
+					System.out.print(maze.getType(row, column) + ", ");
+			}
+		}
 	}
 
 	public static void main(String[] args) {

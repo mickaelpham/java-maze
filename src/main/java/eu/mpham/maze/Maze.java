@@ -1,5 +1,7 @@
 package eu.mpham.maze;
 
+import java.util.Random;
+
 
 public class Maze {
 	
@@ -41,7 +43,7 @@ public class Maze {
 	private boolean[][] vWalls;
 	
 	// Object for generating random numbers
-//	private Random random = new Random();
+	private Random random = new Random();
 	
 	public Maze(int rows, int columns) {
 		this.columns = columns;
@@ -49,6 +51,7 @@ public class Maze {
 		this.hWalls = new boolean[rows + 2][columns + 2];
 		this.vWalls = new boolean[rows + 2][columns + 2];
 		emptyMaze();
+		generateMaze();
 	}
 	
 	public int getRows() {
@@ -87,6 +90,20 @@ public class Maze {
 		vWalls[rows + 1][1] = false;
 		vWalls[0][columns] = false;
 		vWalls[rows + 1][columns] = false;
+	}
+	
+	private void generateMaze() {
+		for (int row = 2; row < rows; row++) {
+			for (int column = 2; column < columns; column++) {
+				hWalls[row][column] = true;
+			}
+		}
+		hWalls[3][columns] = true;
+		hWalls[2][1] = true;
+		vWalls[4][2] = true;
+		vWalls[5][2] = true;
+		vWalls[4][6] = true;
+		vWalls[5][6] = true;
 	}
 	
 	public Type getType(int row, int column) {
