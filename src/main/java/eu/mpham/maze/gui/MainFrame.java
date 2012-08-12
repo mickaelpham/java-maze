@@ -33,8 +33,8 @@ public class MainFrame extends JFrame {
 		this.maze = maze;
 		
 		// Main characteristics for the frame
-		int width = App.COLUMNS * IMG_WIDTH + 50;
-		int height = App.ROWS * IMG_HEIGHT + 100;
+		int width = App.COLUMNS * IMG_WIDTH;
+		int height = App.ROWS * IMG_HEIGHT + 20;
 		this.setSize(width, height);
 		this.setLocationRelativeTo(null);
 		this.setTitle("Maze 4 Java");

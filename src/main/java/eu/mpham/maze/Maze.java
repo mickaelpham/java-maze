@@ -95,15 +95,10 @@ public class Maze {
 	private void generateMaze() {
 		for (int row = 2; row < rows; row++) {
 			for (int column = 2; column < columns; column++) {
-				hWalls[row][column] = true;
+				hWalls[row][column] = random.nextBoolean();
+				vWalls[row][column] = random.nextBoolean();
 			}
 		}
-		hWalls[3][columns] = true;
-		hWalls[2][1] = true;
-		vWalls[4][2] = true;
-		vWalls[5][2] = true;
-		vWalls[4][6] = true;
-		vWalls[5][6] = true;
 	}
 	
 	public Type getType(int row, int column) {
